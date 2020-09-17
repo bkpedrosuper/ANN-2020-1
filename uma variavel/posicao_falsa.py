@@ -1,11 +1,14 @@
 # posição pode ser mais lento que o método da bisseção
-
+import math
 # uma função qualquer
 def f(x):
-    return x ** 5 - 8 * x - 2
+    return math.cos(x**2)-x
 
-n = 30
+n = 4
+chosen = 0
 a, b = [1, 2]
+print("O número de iterações é", n)
+print("O intervalo escolhido foi [", a, ",", b, "]")
 for i in range(n):
     xn = (a * f(b) - b * f(a)) / (f(b) - f(a))
     if f(xn) == 0:
@@ -14,4 +17,8 @@ for i in range(n):
         b = xn
     else:
         a = xn
-    print(i, xn, abs(xn - 1.7392201937014509))
+    chosen = xn
+    print(i+1, xn)
+
+print("A raiz está dentro do intervalo a=",a,"e b=",b )
+print("a raiz mais próxima encontrada foi", chosen)

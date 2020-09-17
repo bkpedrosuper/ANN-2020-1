@@ -1,17 +1,18 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 # pontos = [(1,2.1), (2,1.5), (3,3.2), (3.5, 2.9), (3.8, 2)]
 # # pontos = [(x, np.cos(x ** 2) + x ** 2) for x in np.arange(-2, 2, 0.2)]
 # jogar a função aqui
 def f(x):
-    return 1 / ((1 + x**2)**(0.5))
+    return 2 / (1 + x**2)
 
 # colocar os pontos aqui
-xs = [0, 0.3,  1.3,  2]
+xs = [-4.65,  -4.62,  -4.39,  -4.25,  -4.01,  -3.6,  -3.52,  -2.62, -0.75,  0.47,  0.77,  0.78,  1.44,  2.45,  2.91,  3.06,  3.17,  3.7,  4.49, 4.83]
 pontos = [(x, f(x)) for x in xs]
 xs, ys = zip(*pontos)
-print("Calculando spline cúbico para a função 1 / ((1 + x**2)**(0.5))\n", "Spline passa pelos pontos:",pontos)
+
 n = len(xs) - 1
 h = {k: xs[k+1] - xs[k] for k in range(n)}
 a = {k: v for k, v in enumerate(ys)}

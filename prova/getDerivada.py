@@ -3,13 +3,13 @@ import numpy as np
 import sympy as sy
 
 x0 = 1 # <- deriva neste ponto
-n = 10 # <- usa essa quantidade de pontos
-der = 4 # <- deriva este tanto de vezes
-h = 0.0125 # <- comprimento dos subintervalos em xs
+n = 4 # <- usa essa quantidade de pontos
+der = 3 # <- deriva este tanto de vezes <- botar quantas vezes derivará
+h = 0.1 # <- comprimento dos subintervalos em xs
 xs = [h * (-1 + i*(2/(n-1))) + x0 for i in range(n)]
-print(xs)
 
 def f(x):
+    #AQUI VOCÊ BOTA O POLINOMIO CASO SEJA TIPO A Q9 OU A FUNÇÃO CASO SEJA TIPO A Q8
     return math.cos(x**x)
 
 A = [[x ** i for x in xs] for i in range(n)]
@@ -39,6 +39,3 @@ string = 'cos(x**x)'
 F = sy.sympify(string)
 exact = sy.diff(F, x, der).subs(x, x0)
 print('exact:', exact.evalf())
-
-# import random
-# print('aprox:', random.randint(-10**8, 10 ** 8))
